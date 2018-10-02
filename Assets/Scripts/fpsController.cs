@@ -7,6 +7,7 @@ public class fpsController : MonoBehaviour
 {
 
 	public GameObject playerCam;
+	public GameObject pan;
 	public Rigidbody playerRB;
 
 	public float lookSensitiv = 0;
@@ -27,12 +28,13 @@ public class fpsController : MonoBehaviour
 		inputVector = transform.forward * vert * moveSpeed;
 		inputVector += transform.right * horiz * moveSpeed;
 		
-		camControl();
+		if (pan.GetComponent<foodScript>().playerAtPot == false)
+			camControl();
 	}
 	
 	void FixedUpdate () {
-		
-		playerMove();
+		if (pan.GetComponent<foodScript>().playerAtPot == false)
+			playerMove();
 	}
 
 	void camControl()
@@ -49,7 +51,6 @@ public class fpsController : MonoBehaviour
 
 	void playerMove()
 	{
-
 		playerRB.velocity = inputVector;
 		//this.transform.Translate(horiz * moveSpeed * Time.deltaTime, 0, vert * moveSpeed * Time.deltaTime);
 	}
