@@ -131,7 +131,7 @@ public class foodScript : MonoBehaviour
 	{
 		this.transform.position += new Vector3(Input.GetAxis("Mouse X") * Time.deltaTime * panSpeedX * 5, 0, Input.GetAxis("Mouse Y")) * Time.deltaTime * panSpeedY;
 		
-		if (Input.GetKeyDown(KeyCode.Mouse0))
+		if (Input.GetKeyDown(KeyCode.Mouse0) && burgerOnPan)
 		{
 			float burgerXRange = burgerPatty.transform.position.x + Random.Range(-2, 2);
 			float burgerZRange = burgerPatty.transform.position.z + Random.Range(-2, 2);

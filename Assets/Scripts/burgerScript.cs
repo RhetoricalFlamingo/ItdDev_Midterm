@@ -46,8 +46,13 @@ public class burgerScript : MonoBehaviour
 		}
 	}
 
-	private void OnTriggerEnter(Collider other)
+	public void OnTriggerEnter(Collider other)
 	{
-		
+		pan.GetComponent<foodScript>().burgerOnPan = true;
+	}
+	
+	public void OnTriggerExit(Collider other)
+	{
+		pan.GetComponent<foodScript>().burgerOnPan = false;
 	}
 }
