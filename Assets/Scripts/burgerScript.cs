@@ -45,4 +45,9 @@ public class burgerScript : MonoBehaviour
 				this.GetComponent<MeshRenderer>().material = rawMeat;
 		}
 	}
+
+	private void OnTriggerEnter(Collider other)
+	{
+		
+	}
 }

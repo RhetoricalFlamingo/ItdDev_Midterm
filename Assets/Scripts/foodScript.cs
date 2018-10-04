@@ -23,6 +23,8 @@ public class foodScript : MonoBehaviour
 
 	private int currentSide = 0;
 	
+	public bool burgerOnPan = false;
+	
 	// Use this for initialization
 	void Start () {
 		
@@ -128,5 +130,15 @@ public class foodScript : MonoBehaviour
 	public void movePan()
 	{
 		this.transform.position += new Vector3(Input.GetAxis("Mouse X") * Time.deltaTime * panSpeedX * 5, 0, Input.GetAxis("Mouse Y")) * Time.deltaTime * panSpeedY;
+		
+		if (Input.GetKeyDown(KeyCode.Mouse0))
+		{
+			float burgerXRange = burgerPatty.transform.position.x + Random.Range(-2, 2);
+			float burgerZRange = burgerPatty.transform.position.z + Random.Range(-2, 2);
+			
+			burgerPatty.GetComponent<Rigidbody>().AddForceAtPosition(new Vector3(0, 3, 0),
+																	  burgerPatty.transform.position + new Vector3(burgerXRange, 0, burgerZRange),
+																	  ForceMode.Impulse);
+		}
 	}
 }
