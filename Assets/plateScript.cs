@@ -24,7 +24,7 @@ public class plateScript : MonoBehaviour
 		
 		i += Time.deltaTime;
 
-		if (i >= .3)
+		if (i >= 1.5f)
 		{
 			resultsScreen.SetActive(true);
 		}

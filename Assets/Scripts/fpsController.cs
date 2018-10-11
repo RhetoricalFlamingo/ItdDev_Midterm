@@ -16,10 +16,14 @@ public class fpsController : MonoBehaviour
 	public float moveSpeed = 0;
 	private Vector3 inputVector;
 	
+	bool cursorInactive = true;
+	
 	// Use this for initialization
 	void Start ()
 	{
 		playerRB = this.GetComponent<Rigidbody>();
+		Cursor.visible = false;
+		Cursor.lockState = CursorLockMode.Locked;
 	}
 	
 	// Update is called once per frame
@@ -45,6 +49,20 @@ public class fpsController : MonoBehaviour
 		if (Input.GetKeyUp(KeyCode.R))
 		{
 			SceneManager.LoadScene("testScene");
+		}
+		
+		if (cursorInactive && Input.GetKeyDown(KeyCode.Escape))	//make cursor visible and moving again
+		{
+			Cursor.visible = true;
+			Cursor.lockState = CursorLockMode.None;
+			cursorInactive = false;
+		}
+		
+		if (!cursorInactive && Input.GetKeyDown(KeyCode.Mouse0))	//make cursor invisible and locked on mouse
+		{
+			Cursor.visible = false;
+			Cursor.lockState = CursorLockMode.Locked;
+			cursorInactive = true;
 		}
 	}
 	
