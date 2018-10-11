@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Timers;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class fpsController : MonoBehaviour
@@ -30,6 +32,20 @@ public class fpsController : MonoBehaviour
 		
 		if (pan.GetComponent<foodScript>().playerAtPot == false)
 			camControl();
+
+		if (Input.GetKey(KeyCode.R))
+		{
+			float resetI = 0;
+			resetI += Time.deltaTime;
+			if (resetI > 3)
+			{
+				Application.Quit();
+			}
+		}
+		if (Input.GetKeyUp(KeyCode.R))
+		{
+			SceneManager.LoadScene("testScene");
+		}
 	}
 	
 	void FixedUpdate () {

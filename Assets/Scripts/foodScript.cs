@@ -9,6 +9,7 @@ public class foodScript : MonoBehaviour
 	public GameObject playerCam;
 	public GameObject player;
 	public GameObject foodCam;
+	public GameObject plate;
 	
 	public bool playerAtPot = false;
 	private bool plateOut = false;
@@ -21,7 +22,7 @@ public class foodScript : MonoBehaviour
 	public float perfectTime = 0;
 	public float foodQuality = 0;
 
-	private int currentSide = 0;
+	public int currentSide = 0;
 	
 	public bool burgerOnPan = false;
 	
@@ -55,10 +56,12 @@ public class foodScript : MonoBehaviour
 				if (plateOut)
 				{
 					plateOut = false;
+					plate.SetActive(false);
 				}
 				else
 				{
 					plateOut = true;
+					plate.SetActive(true);
 				}
 			}
 
@@ -130,15 +133,5 @@ public class foodScript : MonoBehaviour
 	public void movePan()
 	{
 		this.transform.position += new Vector3(Input.GetAxis("Mouse X") * Time.deltaTime * panSpeedX * 5, 0, Input.GetAxis("Mouse Y")) * Time.deltaTime * panSpeedY;
-		
-		if (Input.GetKeyDown(KeyCode.Mouse0) && burgerOnPan)
-		{
-			float burgerXRange = burgerPatty.transform.position.x + Random.Range(-2, 2);
-			float burgerZRange = burgerPatty.transform.position.z + Random.Range(-2, 2);
-			
-			burgerPatty.GetComponent<Rigidbody>().AddForceAtPosition(new Vector3(0, 3, 0),
-																	  burgerPatty.transform.position + new Vector3(burgerXRange, 0, burgerZRange),
-																	  ForceMode.Impulse);
-		}
 	}
 }
