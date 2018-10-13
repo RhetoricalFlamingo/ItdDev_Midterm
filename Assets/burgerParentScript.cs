@@ -20,16 +20,21 @@ public class burgerParentScript : MonoBehaviour
 
 	private void OnCollisionStay(Collision other)
 	{
-		if (Input.GetKeyDown(KeyCode.Mouse0) && pan.GetComponent<foodScript>().playerAtPot)
+		if (other.gameObject.tag == "pan" && pan.GetComponent<foodScript>().playerAtPot)
 		{
-			float burgerXRange = this.transform.position.x + Random.Range(-2, 2);
-			float burgerZRange = this.transform.position.z + Random.Range(-2, 2);
-			
-			this.GetComponent<Rigidbody>().AddForceAtPosition(new Vector3(0, 3, 0),
-				this.transform.position + new Vector3(burgerXRange, 0, burgerZRange),
-				ForceMode.Impulse);
+			if (Input.GetKeyDown(KeyCode.Mouse0))
+			{
+				float burgerXRange = this.transform.position.x + Random.Range(-2, 2);
+				float burgerZRange = this.transform.position.z + Random.Range(-2, 2);
+
+				this.GetComponent<Rigidbody>().AddForceAtPosition(new Vector3(0, 3, 0),
+					this.transform.position + new Vector3(burgerXRange, 0, burgerZRange),
+					ForceMode.Impulse);
+			}
+
+			this.GetComponent<Rigidbody>().AddForce(Input.GetAxis("mouseX") * Time.deltaTime * 10, 0, Input.GetAxis("mouseY") * Time.deltaTime * 10);
 		}
 
-		Debug.Log("collStay");
+		//Debug.Log("collStay");
 	}
 }

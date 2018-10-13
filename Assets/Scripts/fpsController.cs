@@ -17,6 +17,8 @@ public class fpsController : MonoBehaviour
 	private Vector3 inputVector;
 	
 	bool cursorInactive = true;
+
+	public GameObject controls;
 	
 	// Use this for initialization
 	void Start ()
@@ -64,6 +66,12 @@ public class fpsController : MonoBehaviour
 			Cursor.lockState = CursorLockMode.Locked;
 			cursorInactive = true;
 		}
+
+		if (Input.GetKey(KeyCode.LeftShift))
+		{
+			controls.SetActive(true);
+		}
+		else controls.SetActive(false);
 	}
 	
 	void FixedUpdate () {
