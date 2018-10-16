@@ -8,9 +8,9 @@ public class burgerScript : MonoBehaviour
 	public GameObject pan;
 	private float sideTime = 0;
 	
-	public Material rawMeat;
-	public Material doneMeat;
-	public Material burnMeat;
+	public Texture rawMeat;
+	public Texture doneMeat;
+	public Texture burnMeat;
 
 	public int side_ID = 0;
 	
@@ -25,25 +25,18 @@ public class burgerScript : MonoBehaviour
 		if (side_ID == 1)
 		{
 			sideTime = pan.GetComponent<foodScript>().side1Time;
-			
-			if (sideTime < 70)
-				this.GetComponent<MeshRenderer>().material = burnMeat;
-			if (sideTime < 40)
-				this.GetComponent<MeshRenderer>().material = doneMeat;
-			if (sideTime < 20)
-				this.GetComponent<MeshRenderer>().material = rawMeat;
 		}
 		if (side_ID == 2)
 		{
 			sideTime = pan.GetComponent<foodScript>().side2Time;
-			
-			if (sideTime < 70)
-				this.GetComponent<MeshRenderer>().material = burnMeat;
-			if (sideTime < 40)
-				this.GetComponent<MeshRenderer>().material = doneMeat;
-			if (sideTime < 20)
-				this.GetComponent<MeshRenderer>().material = rawMeat;
 		}
+		
+		if (sideTime < 70)
+			this.GetComponent<MeshRenderer>().material.SetTexture("_MainTex", burnMeat);
+		if (sideTime < 40)
+			this.GetComponent<MeshRenderer>().material.SetTexture("_MainTex", doneMeat);
+		if (sideTime < 20)
+			this.GetComponent<MeshRenderer>().material.SetTexture("_MainTex", rawMeat);
 	}
 
 	public void OnTriggerEnter(Collider other)

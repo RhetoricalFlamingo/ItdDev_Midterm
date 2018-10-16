@@ -75,8 +75,8 @@ public class fpsController : MonoBehaviour
 	}
 	
 	void FixedUpdate () {
-		if (pan.GetComponent<foodScript>().playerAtPot == false)
-			playerMove();
+		//if (pan.GetComponent<foodScript>().playerAtPot == false)
+		//playerMove();
 	}
 
 	void camControl()

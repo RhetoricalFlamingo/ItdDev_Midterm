@@ -6,6 +6,8 @@ TagManager:
   tags:
   - pattySide1
   - pattySide2
+  - pan
+  - kill
   layers:
   - Default
   - TransparentFX

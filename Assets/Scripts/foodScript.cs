@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class foodScript : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class foodScript : MonoBehaviour
 	public GameObject player;
 	public GameObject foodCam;
 	public GameObject plate;
+	public Text scoreText;
 	
 	public bool playerAtPot = false;
 	private bool plateOut = false;
@@ -25,6 +27,9 @@ public class foodScript : MonoBehaviour
 	public int currentSide = 0;
 	
 	public bool burgerOnPan = false;
+
+	public float pointsI = 0;
+	public float pointsMax = 0;
 	
 	// Use this for initialization
 	void Start () {
@@ -67,7 +72,7 @@ public class foodScript : MonoBehaviour
 
 			if (Input.GetKeyDown(KeyCode.E))	//LEAVE COOKSTATION
 			{
-				playerAtPot = false;
+				playerAtPot = true;
 			}
 		}
 		else
@@ -76,7 +81,16 @@ public class foodScript : MonoBehaviour
 			foodCam.SetActive(false);
 		}
 
-		foodQuality = Mathf.Abs(((perfectTime - side1Time) + (perfectTime - side2Time)) / 2);
+		foodQuality = (((side1Time + side2Time) / perfectTime) * 100);	// time on pan (where 100 is perfectly cooked)
+		if ((currentSide == 1 && side1Time > 40) || (currentSide == 2 && side2Time > 40))
+		{
+			foodQuality -= Time.deltaTime * 200;
+			Debug.Log("burning");
+		}
+		              
+		pointsMax = foodQuality + pointsI;
+		
+		scoreText.text = pointsMax + " Points";
 	}
 
 	/*private void OnCollisionEnter(Collision other)	//DECIDE CURRENT FOOD SIDE COOKING
