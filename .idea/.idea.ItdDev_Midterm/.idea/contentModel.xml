@@ -7,7 +7,6 @@
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="pointSpawner.cs" t="Include" />
         <e p="PostProcessing" t="Include">
           <e p="Editor" t="Include">
             <e p="Attributes" t="Include">
@@ -173,11 +172,13 @@
         <e p="Scripts" t="Include">
           <e p="burgerParentScript.cs" t="Include" />
           <e p="burgerScript.cs" t="Include" />
+          <e p="camRot.cs" t="Include" />
           <e p="foodScript.cs" t="Include" />
           <e p="fpsController.cs" t="Include" />
           <e p="panScript.cs" t="Include" />
           <e p="plateScript.cs" t="Include" />
           <e p="pointPickupScript.cs" t="Include" />
+          <e p="pointSpawner.cs" t="Include" />
           <e p="spotifyScript.cs" t="Include" />
           <e p="textDeactive.cs" t="Include" />
         </e>
