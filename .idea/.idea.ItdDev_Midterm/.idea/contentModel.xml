@@ -176,7 +176,9 @@
           <e p="fpsController.cs" t="Include" />
           <e p="panScript.cs" t="Include" />
           <e p="plateScript.cs" t="Include" />
+          <e p="pointPickupScript.cs" t="Include" />
           <e p="spotifyScript.cs" t="Include" />
+          <e p="textDeactive.cs" t="Include" />
         </e>
       </e>
       <e p="ItdDev_Midterm.sln" t="IncludeFlat" />

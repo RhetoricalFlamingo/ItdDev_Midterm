@@ -8,6 +8,7 @@ TagManager:
   - pattySide2
   - pan
   - kill
+  - scorePlus
   layers:
   - Default
   - TransparentFX

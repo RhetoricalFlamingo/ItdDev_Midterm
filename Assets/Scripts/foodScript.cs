@@ -30,6 +30,7 @@ public class foodScript : MonoBehaviour
 
 	public float pointsI = 0;
 	public float pointsMax = 0;
+	float burnDecrem = 0;
 	
 	// Use this for initialization
 	void Start () {
@@ -84,11 +85,13 @@ public class foodScript : MonoBehaviour
 		foodQuality = (((side1Time + side2Time) / perfectTime) * 100);	// time on pan (where 100 is perfectly cooked)
 		if ((currentSide == 1 && side1Time > 40) || (currentSide == 2 && side2Time > 40))
 		{
-			foodQuality -= Time.deltaTime * 200;
+			burnDecrem += Time.deltaTime * 400f;
+			
+			foodQuality -= Time.deltaTime * burnDecrem;
 			Debug.Log("burning");
 		}
 		              
-		pointsMax = foodQuality + pointsI;
+		pointsMax = (int) (foodQuality + pointsI);
 		
 		scoreText.text = pointsMax + " Points";
 	}

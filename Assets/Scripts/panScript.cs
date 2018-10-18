@@ -24,13 +24,13 @@ public class panScript : MonoBehaviour
 		if (other.gameObject.tag == "pattySide1")	//copyPasted above collision detection because pattysides are now triggers
 		{
 			currentSide = 1;
-			Debug.Log("side1Contact");
+			//Debug.Log("side1Contact");
 		}
 		
 		else if (other.gameObject.tag == "pattySide2")
 		{
 			currentSide = 2;
-			Debug.Log("side2Contact");
+			//Debug.Log("side2Contact");
 		}
 	}
 
@@ -39,7 +39,7 @@ public class panScript : MonoBehaviour
 		if ((other.gameObject.tag == "pattySide1") || (other.gameObject.tag == "pattySide2"))
 		{
 			currentSide = 0;
-			Debug.Log("burgerOffPan");
+			//Debug.Log("burgerOffPan");
 		}
 	}
 }

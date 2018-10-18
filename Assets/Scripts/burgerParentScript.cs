@@ -76,6 +76,6 @@ public class burgerParentScript : MonoBehaviour
 			SceneManager.LoadScene("testScene");
 		}
 		
-		Debug.Log("i = " + i);
+		//Debug.Log("i = " + i);
 	}
 }
