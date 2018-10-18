@@ -27,6 +27,8 @@ public class plateScript : MonoBehaviour
 		if (i >= 1.5f)
 		{
 			resultsScreen.SetActive(true);
+			Cursor.lockState = CursorLockMode.None;
+			Cursor.visible = true;
 		}
 	}
 }
